@@ -17,18 +17,34 @@ interface Person {
         { name: 'Adam', surname: 'Terry', age: 24, role: 'admin'},
     ]
     
-    function logPerson(person: Person) {
-    // TODO: dodać wypisywanie na konsoli danych osoby: "imię nazwisko, wiek, rola"
-         console.log('${person.name}, ${person.surname}, ${person.age},${person.role');
+
+    function logPerson(persons: Person[]) {
+        users.forEach(user => {
+            console.log(user);
+        })
+    
+        admins.forEach(admin =>{
+            console.log(admin);
+        })
     }
 
     function filterPersons(persons: Person[], criteria: any): Person[] {
     // TODO: zaimplementować funkcję, która przefiltruje tablicę persons za pomocą predykatu criteria
+        persons = [...users,...admins]
+        persons.filter
+        // persons.forEach(person => {
+        //     console.log(person)
+        // })
+        criteria = persons.filter(person => person.age > 25);
+        //criteria = persons.filter(person => person.name == 'Adam')
+        return criteria;
 
 
     }
+
     
-    // TODO:
+    
+    // TODO:    
     // 1. Przy pomocy funkcji logPerson wypisać osoby z tablicy users i admins (patrz foreach)
     // 2. Złączyć tablice users i admins i wypisać zawartość złączonej tablicy na konsoli (patrz operator spread)
     // 3. Wypisać osoby powyżej 25 lat (patrz operator filter)

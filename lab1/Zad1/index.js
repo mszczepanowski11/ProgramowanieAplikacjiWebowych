@@ -12,5 +12,5 @@ var p = new Person("John", "Blake", 11);
 const Show = () => {
     return "Witaj " + p.name + " " + p.surname + ", mam " + p.age + " lat";
 }
-Show();
+
 document.getElementById('header').innerHTML = Show();

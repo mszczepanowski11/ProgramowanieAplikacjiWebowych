@@ -18,4 +18,3 @@ let p = new Person("John","Blake",11);
 const Show = () => {
     console.log(`Witaj ${p.name} ${p.surname}  ", mam "  ${p.age} + " lat"`);
 }
-Show();
