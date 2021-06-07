@@ -1,4 +1,6 @@
-export class Snake extends Animal {
+import Animal from "./animal";
+
+class Snake extends Animal {
     constructor(name: string) {
       super(name);
     }
@@ -8,4 +10,4 @@ export class Snake extends Animal {
     }
   }
   
-  import {Animal} from "./animal";
+export default Snake

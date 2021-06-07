@@ -1,4 +1,5 @@
-export class Horse extends Animal {
+import Animal from "./animal"; 
+class Horse extends Animal {
     constructor(name: string) {
       super(name);
     }
@@ -8,4 +9,6 @@ export class Horse extends Animal {
     }
   }
 
-  import {Animal} from "./animal"; 
+ export default Horse 
+
+
