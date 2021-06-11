@@ -18,7 +18,7 @@ export class Cell {
 
       PlayerX.classList.add('img')
       PlayerO.classList.add('img')
-
+ 
       if (value == 1 && this.cellValue == 0) {
          this.htmlELement.appendChild(PlayerX)
       } else if (value == -1 && this.cellValue == 0) {
