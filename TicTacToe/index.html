@@ -9,10 +9,12 @@
 <body>
     <section>
         <header>Tic Tac Toe</header>
+        <h2 class='game-status'>Waiting for start</h2>
         <table id="tictactoe"></table>
-        <button class="restartBtn">Restart Game</button>
+        <button onClick='window.location.reload()' class="restartBtn">Restart Game</button>
     </section>
-
+    
+    <script>var exports = {};</script>
     <script src="index.js"></script>
 </body>
 </html>
