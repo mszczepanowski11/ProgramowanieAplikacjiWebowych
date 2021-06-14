@@ -1,0 +1,92 @@
+@import './variables.scss';
+
+
+@mixin buttonStyle {
+    display: inline-block;
+    margin-left:10px;
+    padding:8px;
+    font: inherit;
+    outline: 0;
+    transition: all 100ms ease-in;
+    cursor: pointer;
+}
+@mixin buttonHover {
+    color:white;
+    background-color:crimson;
+}
+
+body{
+    text-align: center;
+    font-family: $font-stack;
+    background-image:$bg-image;
+}
+
+section{
+    label{
+        margin-right: 10px;
+    }
+    input {
+        padding: 12px 10px;
+        margin: 2px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        box-sizing: border-box;
+    }
+    button {
+       @include buttonStyle
+    }
+    button:hover {
+        @include buttonHover
+    }
+}
+
+header{
+    color:$headerColor;
+    font-family:$headerFont;
+    text-align: center;
+    font-size: 50px;
+}
+
+.game-status {
+    font-size: $gameStatusSize;
+}
+#restartBtn{
+     margin-top:15px;
+}
+
+table{
+    width:25%;
+    margin:auto;
+    margin-top:50px;
+    padding:10px;
+    background-color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+td {
+    width:100px;
+    height:100px;
+    border: 2px solid #222;
+}
+
+
+td:nth-of-type(1){
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+td:nth-of-type(2){
+    border-top-color: transparent;
+    border-top-color: transparent;
+}
+td:nth-of-type(3){
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+tr:nth-of-type(3) td {
+    border-bottom-color: transparent;
+  }

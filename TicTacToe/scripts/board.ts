@@ -1,6 +1,5 @@
 import {Cell} from './cell'
 
-
 let currentPlayer = 'X'
 let gameRunning: boolean = true
 
@@ -21,7 +20,6 @@ export class Board {
             cell.className = 'cell'
             const newCell = new Cell(cell)
             this.cells[i] = newCell
-
             gameRunning ?
                cell.addEventListener("click", () =>
                   this.makeMove(newCell), true)

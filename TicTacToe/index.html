@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>Tic Tac Toe</header>
     <section>
         <label for='board_size'>Size of board</label>
-        <input type="number" id='board_size'> 
+        <input type="number" id='board_size' placeholder='size...'> 
         <button id='playBtn'>Play</button>
     </section>
     <section>
-        <header>Tic Tac Toe</header>
         <h2 class='game-status'>Waiting for start</h2>
         <table id="tictactoe"></table>
         <button onclick='window.location.reload();' id="restartBtn">Restart Game</button>
