@@ -29,22 +29,23 @@ class App {
             }
             
             const game = this.gamesFactory.getGame(Number(gameObject))
-            const icon = document.createElement('img')
-            icon.classList.add('icon')
-            const item = document.createElement('li')
-            icon.src = game.icon
-            
-            item.appendChild(document.createTextNode(game.name))
-            item.appendChild(icon)
 
-            item.addEventListener('click' , () => {
-                gameContainer.innerHTML = " "
-                gameContainer.appendChild(game.getGameElement())
-            })
-            
+            if(game.disabled){
+                const icon = document.createElement('img')
+                icon.classList.add('icon')
+                const item = document.createElement('li')
+                icon.src = game.icon
+                item.appendChild(document.createTextNode(game.name))
+                item.appendChild(icon)
 
-            list.appendChild(item)
+                item.addEventListener('click' , () => {
+                    gameContainer.innerHTML = " "
+                    gameContainer.appendChild(game.getGameElement())
+                })
+            
+                 list.appendChild(item)
         }
+    }
 
         const setTheme = (themeName) => {
             localStorage.setItem('theme', themeName);
@@ -61,7 +62,6 @@ class App {
         themeBtn.addEventListener('click',() => {
             toggleTheme();
         })
-         
         menuContainer.appendChild(list);
         document.body.appendChild(menuContainer);
         document.body.appendChild(gameContainer);
