@@ -1,4 +1,5 @@
 import {Cell} from './cell'
+import {LocalStorageStore} from '../storage/localstorage'
 
 let currentPlayer = 'X'
 let gameRunning: boolean = true
@@ -6,10 +7,14 @@ let gameRunning: boolean = true
 export class Board {
    cells: Cell[]
    currentSymbol: number
+   storage: LocalStorageStore
 
    constructor(size: number) {
+
       this.cells = new Array(size)
+      this.storage = new LocalStorageStore()
       this.currentSymbol = 1
+      this.loadGame()
 
       let table = <HTMLTableElement>document.getElementById("tictactoe")
       let i = 0;
@@ -30,6 +35,29 @@ export class Board {
          }
       }
    }
+
+   loadGame():void {
+      const div        = <HTMLInputElement>(document.createElement('div'))
+      const loadButton = <HTMLButtonElement>(document.createElement('button'))
+      loadButton.textContent = 'Load'
+
+      loadButton.addEventListener('click',() => {
+         let loadedBoard = new Board(0)
+         let cellValues = <string>localStorage.getItem('loadGame')
+         let lastGame:Array<Cell> =   JSON.parse(cellValues)
+
+         loadedBoard.cells = lastGame
+
+         for(let i=0; i < lastGame.length; i++){
+            const el = lastGame[i]
+            el.setCellValue(1)
+         }
+      })
+
+      div.appendChild(loadButton);
+      document.body.appendChild(div);
+   }
+
 
    boardIsFull():boolean{
       for(let i = 0; i < this.cells.length;i++){
@@ -57,6 +85,8 @@ export class Board {
             statusDisplay.innerHTML = 'Turn:X'
          }
       }
+
+      this.storage.saveGame(this.cells)
 
       //DRAW
       if (this.boardIsFull()) {
