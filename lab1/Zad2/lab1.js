@@ -10,28 +10,28 @@ var admins = [
 
 function logPerson(person) {
     // TODO: dodać wypisywanie na konsoli danych osoby: "imię nazwisko, wiek, rola"
-    // users.forEach(user => {
-    //     console.log(user);
-    // })
+    //  users.forEach(user => {
+    //      console.log(user);
+    //  })
 
-    // admins.forEach(admin =>{
-    //     console.log(admin);
-    // })
+    //  admins.forEach(admin =>{
+    //      console.log(admin);
+    //  })
 }
 logPerson();
 
 
 function filterPersons(persons, criteria,x) {
     // TODO: zaimplementować funkcję, która przefiltruje tablicę persons za pomocą predykatu criteria
-    // persons = users.concat(admins);
+    persons = users.concat(admins);
 
-    // persons.forEach(person => {
-    //     console.log(person)
-    // })
+    persons.forEach(person => {
+        console.log(person)
+    })
 
-    // //criteria = persons.filter(person => person.age > 25);
-    // //criteria = persons.filter(person => person.name == 'Adam')
-    // console.log(criteria);
+    criteria = persons.filter(person => person.age > 25);
+    criteria = persons.filter(person => person.name == 'Adam')
+    console.log(criteria);
 
 }
 filterPersons();

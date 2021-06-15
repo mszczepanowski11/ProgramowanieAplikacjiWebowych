@@ -17,7 +17,6 @@ interface Person {
         { name: 'Adam', surname: 'Terry', age: 24, role: 'admin'},
     ]
     
-
     function logPerson(persons: Person[]) {
         users.forEach(user => {
             console.log(user);
@@ -38,8 +37,6 @@ interface Person {
         criteria = persons.filter(person => person.age > 25);
         //criteria = persons.filter(person => person.name == 'Adam')
         return criteria;
-
-
     }
 
     
