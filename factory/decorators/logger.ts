@@ -1,4 +1,3 @@
-import {Game} from '../game.model'
 
 export function logger(name:string){
     return (target:any, propKey:string, descriptor:PropertyDescriptor) => {
