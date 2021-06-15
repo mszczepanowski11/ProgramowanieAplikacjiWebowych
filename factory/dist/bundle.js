@@ -54,19 +54,39 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /*!************************************!*\
   !*** ./battleships/battleships.ts ***!
   \************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nexports.__esModule = true;\nexports.BattleShips = void 0;\nvar BattleShips = /** @class */ (function () {\n    function BattleShips() {\n        this.name = \"Battleship\";\n        this.icon = '../icons/battleship.png';\n        this.disabled = true;\n    }\n    BattleShips.prototype.getGameElement = function () {\n        var div = document.createElement('div');\n        div.appendChild(document.createTextNode(\"Hello BattleShips\"));\n        return div;\n    };\n    return BattleShips;\n}());\nexports.BattleShips = BattleShips;\n\n\n//# sourceURL=webpack:///./battleships/battleships.ts?");
+eval("\nvar __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.BattleShips = void 0;\nvar logger_1 = __webpack_require__(/*! ../decorators/logger */ \"./decorators/logger.ts\");\nvar BattleShips = /** @class */ (function () {\n    function BattleShips() {\n        this.name = \"Battleship\";\n        this.icon = '../icons/battleship.png';\n        this.disabled = true;\n    }\n    BattleShips.prototype.getGameElement = function () {\n        var div = document.createElement('div');\n        div.appendChild(document.createTextNode(\"Hello BattleShips\"));\n        return div;\n    };\n    __decorate([\n        logger_1.logger('Battleships')\n    ], BattleShips.prototype, \"getGameElement\", null);\n    return BattleShips;\n}());\nexports.BattleShips = BattleShips;\n\n\n//# sourceURL=webpack:///./battleships/battleships.ts?");
 
 /***/ }),
 
-/***/ "./decorator.ts":
-/*!**********************!*\
-  !*** ./decorator.ts ***!
-  \**********************/
+/***/ "./decorators/decorator.ts":
+/*!*********************************!*\
+  !*** ./decorators/decorator.ts ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nexports.__esModule = true;\nexports.disabled = void 0;\nfunction disabled(constructorFn) {\n    constructorFn.prototype.disabled = true;\n}\nexports.disabled = disabled;\n\n\n//# sourceURL=webpack:///./decorator.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.disabled = void 0;\nfunction disabled(constructorFn) {\n    constructorFn.prototype.disabled = true;\n}\nexports.disabled = disabled;\n\n\n//# sourceURL=webpack:///./decorators/decorator.ts?");
+
+/***/ }),
+
+/***/ "./decorators/initalize.ts":
+/*!*********************************!*\
+  !*** ./decorators/initalize.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.initialize = void 0;\nfunction initialize(target, propKey, descriptor) {\n    var originalFn = target[propKey];\n    descriptor.value = function (param) {\n        console.log(\"Game portal has been loaded\");\n        return originalFn.call(this, param);\n    };\n}\nexports.initialize = initialize;\n\n\n//# sourceURL=webpack:///./decorators/initalize.ts?");
+
+/***/ }),
+
+/***/ "./decorators/logger.ts":
+/*!******************************!*\
+  !*** ./decorators/logger.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.logger = void 0;\nfunction logger(name) {\n    return function (target, propKey, descriptor) {\n        var originalFn = target[propKey];\n        descriptor.value = function (param) {\n            console.log(\"Game \" + name + \" has been launched\");\n            return originalFn.call(this, param);\n        };\n    };\n}\nexports.logger = logger;\n\n\n//# sourceURL=webpack:///./decorators/logger.ts?");
 
 /***/ }),
 
@@ -76,7 +96,7 @@ eval("\nexports.__esModule = true;\nexports.disabled = void 0;\nfunction disable
   \*************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\nexports.__esModule = true;\nexports.GameFactory = void 0;\nvar games_enum_1 = __webpack_require__(/*! ./games.enum */ \"./games.enum.ts\");\nvar tictactoe_1 = __webpack_require__(/*! ./tictactoe/tictactoe */ \"./tictactoe/tictactoe.ts\");\nvar battleships_1 = __webpack_require__(/*! ./battleships/battleships */ \"./battleships/battleships.ts\");\nvar GameFactory = /** @class */ (function () {\n    function GameFactory() {\n    }\n    GameFactory.prototype.getGame = function (game) {\n        switch (game) {\n            case games_enum_1.Games.TicTacToe:\n                return new tictactoe_1.TicTacToe();\n            case games_enum_1.Games.BattleShips:\n                return new battleships_1.BattleShips();\n            default:\n                alert(\"There's no that type of game here!\");\n        }\n    };\n    return GameFactory;\n}());\nexports.GameFactory = GameFactory;\n\n\n//# sourceURL=webpack:///./game.factory.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.GameFactory = void 0;\nvar games_enum_1 = __webpack_require__(/*! ./games.enum */ \"./games.enum.ts\");\nvar tictactoe_1 = __webpack_require__(/*! ./tictactoe/tictactoe */ \"./tictactoe/tictactoe.ts\");\nvar battleships_1 = __webpack_require__(/*! ./battleships/battleships */ \"./battleships/battleships.ts\");\nvar GameFactory = /** @class */ (function () {\n    function GameFactory() {\n    }\n    GameFactory.prototype.getGame = function (game) {\n        switch (game) {\n            case games_enum_1.Games.TicTacToe:\n                return new tictactoe_1.TicTacToe();\n            case games_enum_1.Games.BattleShips:\n                return new battleships_1.BattleShips();\n            default:\n                alert(\"There's no that type of game here!\");\n        }\n    };\n    return GameFactory;\n}());\nexports.GameFactory = GameFactory;\n\n\n//# sourceURL=webpack:///./game.factory.ts?");
 
 /***/ }),
 
@@ -86,7 +106,7 @@ eval("\nexports.__esModule = true;\nexports.GameFactory = void 0;\nvar games_enu
   \***********************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nexports.__esModule = true;\nexports.Games = void 0;\nvar Games;\n(function (Games) {\n    Games[Games[\"TicTacToe\"] = 1] = \"TicTacToe\";\n    Games[Games[\"BattleShips\"] = 2] = \"BattleShips\";\n})(Games = exports.Games || (exports.Games = {}));\n\n\n//# sourceURL=webpack:///./games.enum.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Games = void 0;\nvar Games;\n(function (Games) {\n    Games[Games[\"TicTacToe\"] = 1] = \"TicTacToe\";\n    Games[Games[\"BattleShips\"] = 2] = \"BattleShips\";\n})(Games = exports.Games || (exports.Games = {}));\n\n\n//# sourceURL=webpack:///./games.enum.ts?");
 
 /***/ }),
 
@@ -94,9 +114,9 @@ eval("\nexports.__esModule = true;\nexports.Games = void 0;\nvar Games;\n(functi
 /*!******************!*\
   !*** ./index.ts ***!
   \******************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nexports.__esModule = true;\nvar games_enum_1 = __webpack_require__(/*! ./games.enum */ \"./games.enum.ts\");\nvar game_factory_1 = __webpack_require__(/*! ./game.factory */ \"./game.factory.ts\");\n__webpack_require__(/*! ./styles/styles.scss */ \"./styles/styles.scss\");\nvar App = /** @class */ (function () {\n    function App(gamesFactory) {\n        this.gamesFactory = gamesFactory;\n        this.init();\n    }\n    App.prototype.init = function () {\n        var menuContainer = (document.createElement('div'));\n        var gameContainer = (document.createElement('div'));\n        var themeBtn = (document.createElement('button'));\n        var list = document.createElement('ul');\n        themeBtn.innerHTML = 'Switch theme';\n        themeBtn.classList.add('theme-button');\n        menuContainer.classList.add('menu');\n        gameContainer.classList.add('game');\n        var _loop_1 = function (gameObject) {\n            if (isNaN(Number(gameObject))) {\n                return \"continue\";\n            }\n            var game = this_1.gamesFactory.getGame(Number(gameObject));\n            if (game.disabled) {\n                var icon = document.createElement('img');\n                icon.classList.add('icon');\n                var item = document.createElement('li');\n                icon.src = game.icon;\n                item.appendChild(document.createTextNode(game.name));\n                item.appendChild(icon);\n                item.addEventListener('click', function () {\n                    gameContainer.innerHTML = \" \";\n                    gameContainer.appendChild(game.getGameElement());\n                });\n                list.appendChild(item);\n            }\n        };\n        var this_1 = this;\n        for (var _i = 0, _a = Object.keys(games_enum_1.Games); _i < _a.length; _i++) {\n            var gameObject = _a[_i];\n            _loop_1(gameObject);\n        }\n        var setTheme = function (themeName) {\n            localStorage.setItem('theme', themeName);\n            document.documentElement.className = themeName;\n        };\n        var toggleTheme = function () {\n            if (localStorage.getItem('theme') === 'theme-dark')\n                setTheme('theme-light');\n            else\n                setTheme('theme-dark');\n        };\n        themeBtn.addEventListener('click', function () {\n            toggleTheme();\n        });\n        menuContainer.appendChild(list);\n        document.body.appendChild(menuContainer);\n        document.body.appendChild(gameContainer);\n        document.body.appendChild(themeBtn);\n    };\n    return App;\n}());\nvar gamesFactory = new game_factory_1.GameFactory;\nvar app = new App(gamesFactory);\n// TODO: Zaimplementuj wzorzec fabryki/metody fabrykującej, tak aby na podstawie konkretnej wartości z enum\n// zwrócić obiekt gry. Z tego obiektu można następnie pobrać nazwę gry i dodać do menu oraz metodę zwracającą\n// samą grę i po kliknięciu w wybrany element listy wywoływać ją, aby doklejać zawartość do gameContainer. \n// Aby wyświetlić menu należy napisać pętlę, która przeiteruje po wszystkich wartościach enum'\n\n\n//# sourceURL=webpack:///./index.ts?");
+eval("\nvar __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar games_enum_1 = __webpack_require__(/*! ./games.enum */ \"./games.enum.ts\");\nvar game_factory_1 = __webpack_require__(/*! ./game.factory */ \"./game.factory.ts\");\nvar initalize_1 = __webpack_require__(/*! ./decorators/initalize */ \"./decorators/initalize.ts\");\n__webpack_require__(/*! ./styles/styles.scss */ \"./styles/styles.scss\");\nvar App = /** @class */ (function () {\n    function App(gamesFactory) {\n        this.gamesFactory = gamesFactory;\n        this.init();\n    }\n    App.prototype.init = function () {\n        var menuContainer = (document.createElement('div'));\n        var gameContainer = (document.createElement('div'));\n        var themeBtn = (document.createElement('button'));\n        var list = document.createElement('ul');\n        themeBtn.innerHTML = 'Switch theme';\n        themeBtn.classList.add('theme-button');\n        menuContainer.classList.add('menu');\n        gameContainer.classList.add('game');\n        var _loop_1 = function (gameObject) {\n            if (isNaN(Number(gameObject))) {\n                return \"continue\";\n            }\n            var game = this_1.gamesFactory.getGame(Number(gameObject));\n            if (game.disabled) {\n                var icon = document.createElement('img');\n                icon.classList.add('icon');\n                var item = document.createElement('li');\n                icon.src = game.icon;\n                item.appendChild(document.createTextNode(game.name));\n                item.appendChild(icon);\n                item.addEventListener('click', function () {\n                    gameContainer.innerHTML = \" \";\n                    gameContainer.appendChild(game.getGameElement());\n                });\n                list.appendChild(item);\n            }\n        };\n        var this_1 = this;\n        for (var _i = 0, _a = Object.keys(games_enum_1.Games); _i < _a.length; _i++) {\n            var gameObject = _a[_i];\n            _loop_1(gameObject);\n        }\n        var setTheme = function (themeName) {\n            localStorage.setItem('theme', themeName);\n            document.documentElement.className = themeName;\n        };\n        var toggleTheme = function () {\n            if (localStorage.getItem('theme') === 'theme-dark')\n                setTheme('theme-light');\n            else\n                setTheme('theme-dark');\n        };\n        themeBtn.addEventListener('click', function () {\n            toggleTheme();\n        });\n        menuContainer.appendChild(list);\n        document.body.appendChild(menuContainer);\n        document.body.appendChild(gameContainer);\n        document.body.appendChild(themeBtn);\n    };\n    __decorate([\n        initalize_1.initialize\n    ], App.prototype, \"init\", null);\n    return App;\n}());\nvar gamesFactory = new game_factory_1.GameFactory;\nvar app = new App(gamesFactory);\n// TODO: Zaimplementuj wzorzec fabryki/metody fabrykującej, tak aby na podstawie konkretnej wartości z enum\n// zwrócić obiekt gry. Z tego obiektu można następnie pobrać nazwę gry i dodać do menu oraz metodę zwracającą\n// samą grę i po kliknięciu w wybrany element listy wywoływać ją, aby doklejać zawartość do gameContainer. \n// Aby wyświetlić menu należy napisać pętlę, która przeiteruje po wszystkich wartościach enum'\n\n\n//# sourceURL=webpack:///./index.ts?");
 
 /***/ }),
 
@@ -106,7 +126,7 @@ eval("\nexports.__esModule = true;\nvar games_enum_1 = __webpack_require__(/*! .
   \********************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\nexports.__esModule = true;\nexports.TicTacToe = void 0;\nvar decorator_1 = __webpack_require__(/*! ../decorator */ \"./decorator.ts\");\nvar TicTacToe = /** @class */ (function () {\n    function TicTacToe() {\n        this.name = \"TicTacToe\";\n        this.icon = '../icons/tic-tac-toe-2.png';\n        this.disabled = true;\n    }\n    TicTacToe.prototype.getGameElement = function () {\n        var div = document.createElement('div');\n        div.appendChild(document.createTextNode(\"Hello TicTacToe\"));\n        return div;\n    };\n    TicTacToe = __decorate([\n        decorator_1.disabled\n    ], TicTacToe);\n    return TicTacToe;\n}());\nexports.TicTacToe = TicTacToe;\n\n\n//# sourceURL=webpack:///./tictactoe/tictactoe.ts?");
+eval("\nvar __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.TicTacToe = void 0;\nvar decorator_1 = __webpack_require__(/*! ../decorators/decorator */ \"./decorators/decorator.ts\");\nvar logger_1 = __webpack_require__(/*! ../decorators/logger */ \"./decorators/logger.ts\");\nvar TicTacToe = /** @class */ (function () {\n    function TicTacToe() {\n        this.name = \"TicTacToe\";\n        this.icon = '../icons/tic-tac-toe-2.png';\n        this.disabled = true;\n    }\n    TicTacToe.prototype.getGameElement = function () {\n        var div = document.createElement('div');\n        div.appendChild(document.createTextNode(\"Hello TicTacToe\"));\n        return div;\n    };\n    __decorate([\n        logger_1.logger('Tic Tac Toe')\n    ], TicTacToe.prototype, \"getGameElement\", null);\n    TicTacToe = __decorate([\n        decorator_1.disabled\n    ], TicTacToe);\n    return TicTacToe;\n}());\nexports.TicTacToe = TicTacToe;\n\n\n//# sourceURL=webpack:///./tictactoe/tictactoe.ts?");
 
 /***/ })
 
@@ -181,7 +201,7 @@ eval("\nvar __decorate = (this && this.__decorate) || function (decorators, targ
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./index.ts");
 /******/ 	
 /******/ })()

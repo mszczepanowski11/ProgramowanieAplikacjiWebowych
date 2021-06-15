@@ -1,5 +1,6 @@
 import { Games } from "./games.enum";
 import {GameFactory} from './game.factory'
+import {initialize} from "./decorators/initalize"
 import './styles/styles.scss';
 
 
@@ -9,7 +10,7 @@ class App {
         this.gamesFactory = gamesFactory;
         this.init();        
     }
-
+    @initialize
     init(): void {
 
         const menuContainer = <HTMLDivElement>(document.createElement('div')) 
@@ -51,7 +52,6 @@ class App {
             localStorage.setItem('theme', themeName);
             document.documentElement.className = themeName;
         }
-
         const toggleTheme = () => {
             if(localStorage.getItem('theme') === 'theme-dark')
                 setTheme('theme-light')
