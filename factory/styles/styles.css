@@ -1,0 +1,81 @@
+.theme-light {
+  --color-primary: #fbfbfe;
+  --font-color: #000000;
+}
+
+.theme-dark {
+  --color-primary:  #2a2c2d;
+  --font-color: crimson;
+}
+
+body {
+  background: var(--color-primary);
+  font-family: "Hammersmith One", sans-serif;
+  margin: 25px;
+}
+
+header {
+  color: var(--font-color);
+  font-family: "Press Start 2P", cursive;
+  font-size: 36px;
+  text-align: left;
+}
+
+h3 {
+  color: var(--font-color);
+}
+
+.menu {
+  width: 25%;
+  -webkit-box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 4px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+          box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 4px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 10px;
+  padding: 3px;
+  -webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  margin-bottom: 50px;
+}
+
+.menu:hover {
+  -webkit-box-shadow: crimson 0px 0px 0px 1px, crimson 0px 2px 2px 0px,crimson 0px 1px 0px inset;
+          box-shadow: crimson 0px 0px 0px 1px, crimson 0px 2px 2px 0px,crimson 0px 1px 0px inset;
+}
+
+ul {
+  color: var(--font-color);
+  list-style-type: none;
+  font-size: 24px;
+}
+
+ul li {
+  cursor: pointer;
+}
+
+.icon {
+  margin: 5px 0 0 140px;
+}
+
+.theme-button {
+  position: absolute;
+  top: 25px;
+  right: 5%;
+  display: inline-block;
+  font-size: 20px;
+  color: var(--font-color);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 4px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+          box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 4px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  cursor: pointer;
+}
+
+.theme-button:hover {
+  color: var(--color-primary);
+  background-color: var(--font-color);
+}
+/*# sourceMappingURL=styles.css.map */

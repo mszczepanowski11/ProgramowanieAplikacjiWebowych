@@ -1,5 +1,77 @@
-$body-color: red;
+@import './variables.scss';
+
+
+
+.theme-light {
+  --color-primary: #fbfbfe;
+  --font-color: #000000;
+}
+.theme-dark {
+  --color-primary:  #2a2c2d;
+  --font-color: crimson;
+}
+
+
 body {
-  color: $body-color;
-  height:200px;
+  background: var(--color-primary);
+  font-family: $font-style;
+  margin:25px;
+}
+
+header{
+  color: var(--font-color);
+  font-family: $header-font-family;
+  font-size:$header-font-size;
+  text-align: left;
+  
+}
+h3{
+  color: var(--font-color);
+}
+
+.menu {
+   width:25%;
+   box-shadow:$box-shadow;
+   border-radius: 10px;
+   padding:3px;
+   transition: all 100ms ease-in;
+   margin-bottom:50px;
+    &:hover{
+      box-shadow:crimson 0px 0px 0px 1px, crimson 0px 2px 2px 0px,crimson 0px 1px 0px inset;
+    }
+}
+
+ul{
+  color: var(--font-color);
+  list-style-type: none;
+  font-size: $list-font-size;
+    li {
+      cursor: pointer;
+    }
+}
+
+.icon{
+  margin:5px 0 0 140px;
+}
+
+.theme-button {
+  position: absolute;
+  top:25px;
+  right:5%;
+  display: inline-block;
+  font-size: 20px;
+  color:var(--font-color);
+  background-color:var(--color-primary);
+  border: none;
+  border-radius: 10px;
+  box-shadow:$box-shadow;
+  text-align: center;
+  text-decoration: none;
+  transition: all 100ms ease-in;
+  cursor: pointer;
+  
+    &:hover{
+      color:var(--color-primary);
+      background-color:var(--font-color);
+    }
 }

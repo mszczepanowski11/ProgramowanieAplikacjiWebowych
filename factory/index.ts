@@ -11,11 +11,15 @@ class App {
     }
 
     init(): void {
-        const menuContainer = <HTMLDivElement>(document.createElement('div')); 
-        const gameContainer = <HTMLDivElement>(document.createElement('div')); 
 
-        const list = document.createElement('ul'); 
+        const menuContainer = <HTMLDivElement>(document.createElement('div')) 
+        const gameContainer = <HTMLDivElement>(document.createElement('div'))
+        const themeBtn      = <HTMLButtonElement>(document.createElement('button'))
 
+        const list = document.createElement('ul')
+
+        themeBtn.innerHTML = 'Switch theme'
+        themeBtn.classList.add('theme-button')
         menuContainer.classList.add('menu')
         gameContainer.classList.add('game')
 
@@ -25,21 +29,43 @@ class App {
             }
             
             const game = this.gamesFactory.getGame(Number(gameObject))
+            const icon = document.createElement('img')
+            icon.classList.add('icon')
             const item = document.createElement('li')
-
+            icon.src = game.icon
+            
             item.appendChild(document.createTextNode(game.name))
+            item.appendChild(icon)
 
             item.addEventListener('click' , () => {
                 gameContainer.innerHTML = " "
                 gameContainer.appendChild(game.getGameElement())
             })
-            list.appendChild(item)
+            
 
+            list.appendChild(item)
         }
-        
+
+        const setTheme = (themeName) => {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+
+        const toggleTheme = () => {
+            if(localStorage.getItem('theme') === 'theme-dark')
+                setTheme('theme-light')
+            else
+                setTheme('theme-dark')    
+        }
+
+        themeBtn.addEventListener('click',() => {
+            toggleTheme();
+        })
+         
         menuContainer.appendChild(list);
         document.body.appendChild(menuContainer);
         document.body.appendChild(gameContainer);
+        document.body.appendChild(themeBtn);
     }
 }
 
