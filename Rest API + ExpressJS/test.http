@@ -1,0 +1,69 @@
+###
+GET http://localhost:3000/products HTTP/1.1
+
+###
+POST http://localhost:3000/products HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Telewizor",
+    "description": "Telewizor plazmowy",
+    "price": 5000
+}
+###
+PUT http://localhost:3000/products HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Telewizor 4K",
+    "description": "Telewizor 4K",
+    "price": 3500
+}
+###
+DELETE http://localhost:3000/products/1 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Telewizor",
+    "description": "Telewizor plazmowy",
+    "price": 5000
+}
+###
+DELETE http://localhost:3000/products/1 HTTP/1.1
+
+###
+GET http://localhost:3000/category HTTP/1.1
+
+###
+
+###
+POST http://localhost:3000/category HTTP/1.1
+content-type: application/json
+{
+    "name": "Laptopy",
+    "description": "Laptop gamingowy",
+    "quantity":"5"
+}
+
+###
+
+###
+PUT http://localhost:3000/category/1 HTTP/1.1
+content-type: application/json
+{
+    "name": "Asus",
+    "description": "RX5",
+    "quantity":"1"
+}
+
+###
+
+###
+DELETE http://localhost:3000/category/1 HTTP/1.1
+content-type: application/json
+{
+    "name": "Asus",
+    "description": "RX5",
+    "quantity":"1"
+}
+###
